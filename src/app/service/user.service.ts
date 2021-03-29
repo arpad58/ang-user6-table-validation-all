@@ -27,4 +27,19 @@ export class UserService {
    delUser(user: User): Observable<User> {
     return this.http.delete<User>(`${this.serverAddress}/${user.id}`);
   }
+
+  /* editor */
+  get(id: number): Observable<User> {
+    return this.http.get<User>(`${this.serverAddress}/${id}`);
+  }
+
+  /* editor create update */
+  createUser(user: User): Observable<User> {
+    return this.http.post<User>(`${this.serverAddress}`, user);
+  }
+
+  /* editor create update */
+  updateUser(user: User): Observable<User> {
+    return this.http.patch<User>(`${this.serverAddress}/${user.id}`, user);
+  }
 }

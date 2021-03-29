@@ -29,9 +29,16 @@
             <td>{{ user.email }}</td>
             <td>{{ user.address }}</td>
             <td>{{ user.active }}</td>
+            <!-- editor button  -->
+
             <!-- delete -->
             <td>
               <div class="btn-group">
+                <!-- editor -->
+                <button [routerLink]="['user/' + user.id]" class="btn btn-info">
+                  <i class="fa fa-pencil"></i>
+                </button>
+                <!-- delete -->
                     <!-- (click)="onDelete(user)" -->
                 <button (click)="onDelete(user)" class="btn btn-danger">
                   <i class="fa fa-trash"></i>

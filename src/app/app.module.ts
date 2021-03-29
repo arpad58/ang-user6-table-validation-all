@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule} from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,6 +9,8 @@ import { NavbarComponent } from './common/navbar/navbar.component';
 import { UserListComponent } from './page/user-list/user-list.component';
 import { FilterPipe } from './pipe/filter.pipe';
 import { SortPipe } from './pipe/sort.pipe';
+import { UserEditorComponent } from './page/user-editor/user-editor.component';
+
 
 @NgModule({
   declarations: [
@@ -15,12 +18,15 @@ import { SortPipe } from './pipe/sort.pipe';
     NavbarComponent,
     UserListComponent,
     FilterPipe,
-    SortPipe
+    SortPipe,
+    UserEditorComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
