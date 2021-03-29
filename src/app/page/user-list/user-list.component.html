@@ -5,6 +5,11 @@
   <div class="row">
     <div class="col-10 offset-1">
       <h2>User List</h2>
+      <!-- filter -->
+      <div>
+        <input (keyup)="onFilterPhrase($event)" class="form-control mb-1" type="search"
+        placeholder="Search" aria-label="Search">
+      </div>
       <table class="table">
         <thead>
           <tr>
@@ -18,8 +23,8 @@
           </tr>
         </thead>
         <tbody>
-          <!-- table --> <!-- table             -->
-          <tr *ngFor="let user of userList$ | async">
+          <!-- table --> <!-- table             -->   <!-- filter        -->
+          <tr *ngFor="let user of userList$ | async | filter: phrase: 'name'">
             <!-- table -->
             <td>{{ user.id }}</td>
             <td>{{ user.name }}</td>

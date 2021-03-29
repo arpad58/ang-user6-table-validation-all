@@ -13,6 +13,9 @@ export class UserListComponent implements OnInit {
   /* table */
   userList$: Observable<User[]> = this.userService.getAll();
 
+  /* filter */
+  phrase: string = '';
+
   constructor(
     private userService: UserService,    /* table */
   ) { }
@@ -28,6 +31,14 @@ export class UserListComponent implements OnInit {
          this.userList$ = this.userService.getAll();
        }
     );
+
+
+
+  }
+
+  /* filter */
+  onFilterPhrase(event: Event): void {
+    this.phrase = (event.target as HTMLInputElement).value;
   }
 
 }
