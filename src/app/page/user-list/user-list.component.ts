@@ -16,6 +16,10 @@ export class UserListComponent implements OnInit {
   /* filter */
   phrase: string = '';
 
+  /* sorter */
+  direction: number =1;
+  columnKey: string = '';
+
   constructor(
     private userService: UserService,    /* table */
   ) { }
@@ -39,6 +43,16 @@ export class UserListComponent implements OnInit {
   /* filter */
   onFilterPhrase(event: Event): void {
     this.phrase = (event.target as HTMLInputElement).value;
+  }
+
+  /* sorter */
+  onColumnSelect(key: string): void {
+    if (this.columnKey === key) {
+      this.direction = this.direction * -1;     /* -1 esetén  */               /*  1 esetén  */                                /*  1 esetén  */
+    } else {                  /* NÖVEKVŐbe és CSÖKKENŐbe is rendez*/  /* NÖVEKVŐbe rendez 1-től felfelé a-tól z-ig */  /* CSÖKKENŐbe rendez pl.100 -tól lefelé, z-től a-ig */
+      this.direction = 1;                      /*  1 esetén  */               /*  1 esetén  */                                /*  -1 esetén  */
+    }
+    this.columnKey = key;
   }
 
 }

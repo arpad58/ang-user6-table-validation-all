@@ -12,19 +12,17 @@
       </div>
       <table class="table">
         <thead>
-          <tr>
-            <!-- table -->
-            <th>#</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Address</th>
-            <th>Active</th>
-            <th></th>
+          <tr>   <!--    sorter            --> <!-- table -->
+            <th (click)="onColumnSelect('id')">#</th>
+            <th (click)="onColumnSelect('name')">Name</th>
+            <th (click)="onColumnSelect('email')">Email</th>
+            <th (click)="onColumnSelect('address')">Address</th>
+            <th (click)="onColumnSelect('active')">Active</th>
           </tr>
         </thead>
         <tbody>
-          <!-- table --> <!-- table             -->   <!-- filter        -->
-          <tr *ngFor="let user of userList$ | async | filter: phrase: 'name'">
+          <!-- table --> <!-- table             -->   <!-- filter        -->  <!--    sorter          -->
+          <tr *ngFor="let user of userList$ | async | filter: phrase: 'name' | sort: columnKey:direction">
             <!-- table -->
             <td>{{ user.id }}</td>
             <td>{{ user.name }}</td>
