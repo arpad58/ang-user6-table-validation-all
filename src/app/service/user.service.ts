@@ -19,4 +19,12 @@ export class UserService {
   getAll(): Observable<User[]> {
     return this.http.get<User[]>(`${this.serverAddress}`);
   }
+
+  /**
+   * Delete a user from the database.
+   * The method is: this.http.delete
+   */
+   delUser(user: User): Observable<User> {
+    return this.http.delete<User>(`${this.serverAddress}/${user.id}`);
+  }
 }

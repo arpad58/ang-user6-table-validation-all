@@ -26,6 +26,15 @@
             <td>{{ user.email }}</td>
             <td>{{ user.address }}</td>
             <td>{{ user.active }}</td>
+            <!-- delete -->
+            <td>
+              <div class="btn-group">
+                    <!-- (click)="onDelete(user)" -->
+                <button (click)="onDelete(user)" class="btn btn-danger">
+                  <i class="fa fa-trash"></i>
+                </button>
+              </div>
+            </td>
           </tr>
         </tbody>
       </table>
