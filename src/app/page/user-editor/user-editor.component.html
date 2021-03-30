@@ -12,17 +12,30 @@
         </div>
         <div class="form-group">
           <label for="">Name</label>
-                  <!-- editor    -->
-          <input [(ngModel)]="user.name" name="name" class="form-control" type="text">
+                  <!-- editor       -->  <!-- Validation: min 8 char, max 40 char, required -->
+          <input [(ngModel)]="user.name" pattern=".{8,40}" required
+          name="name" class="form-control" type="text">
+          <div [hidden]="userForm.controls.name?.valid || userForm.controls.name.pristine" class="error-message">
+            Minimum 8 character, maximum 40 character.
+          </div>
         </div>
+
         <div class="form-group">
           <label for="">Email</label>
-          <input [(ngModel)]="user.email" name="email" class="form-control" type="text">
+        <!--   Help: https://stackoverflow.com/questions/46155/how-to-validate-an-email-address-in-javascript -->
+                                          <!-- Validation: valid email, required. -->
+          <input [(ngModel)]="user.email" pattern="^.{3,}@{1}.{3,}\.{1}[a-z]{2,}$" required
+          name="email" class="form-control" type="text">
         </div>
         <div class="form-group">
                  <!-- editor    -->
           <label for="">Address</label>
-          <input [(ngModel)]="user.address" name="address" class="form-control" type="text">
+                                            <!-- Validation: min 8 char, max 100 char, required -->
+          <input [(ngModel)]="user.address" pattern=".{8,100}" required
+          name="address" class="form-control" type="text">
+          <div [hidden]="userForm.controls.address?.valid || userForm.controls.address.pristine" class="error-message">
+            Minimum 8 characters, maximum 100 characters.
+          </div>
         </div>
         <div class="form-group">
           <label>Active</label>
